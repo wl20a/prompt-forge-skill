@@ -1,0 +1,29 @@
+```text
+Work in the existing repository and keep the change minimal. Do not create a replacement project.
+
+Hard requirements (MUST)
+- Establish the specific login failure and expected behavior from the repository’s issue, reproduction, failing test, or logs before editing. If the bug cannot be identified unambiguously, stop and report what evidence is needed.
+- Fix the root cause of that login bug.
+- Make the resulting authentication flow secure: do not introduce an authentication bypass, credential or token leakage, unsafe session handling, or a new user-enumeration path.
+- Add server-side rate limiting to the login attempt path. Use a conservative policy appropriate to the existing stack, and make it configurable if the repository already has configuration conventions.
+- Report the original failure, the chosen rate-limit policy, files changed, and verification results.
+
+Recommended (SHOULD)
+- Add a regression test for the original login failure and tests covering allowed versus rate-limited attempts.
+- Run the repository’s relevant tests and static checks, then report the exact commands and results.
+- Review the change for credential leakage, unsafe logging, proxy/client-IP trust issues, user lockout, and denial-of-service risks.
+- Use the smallest workable implementation and avoid unrelated refactoring or new dependencies.
+
+Forbidden (MUST NOT)
+- Do not change the existing public API contract: endpoint paths, HTTP methods, request or response schemas, or successful-login semantics.
+- The rate-limit rejection is the only permitted behavioral exception required by this task.
+- Do not replace the existing repository.
+- Do not weaken existing authentication, authorization, password, token, session, or audit protections.
+- Do not claim the result is secure merely because tests pass; explain which security risks and abuse cases are covered.
+```
+
+Semantic changes: The improved prompt adds an evidence gate for the unspecified login bug, converts “secure” into reviewable security boundaries, and resolves the API/rate-limiting conflict by preserving the existing contract except for the requested throttling behavior. Improvement is predicted, not measured against an execution result.
+
+Assumptions: “existing repo” means the current working repository. “Don’t change the API” means preserving its public surface and successful behavior while allowing rate-limit rejections.
+
+Needs input: The login bug’s symptom, reproduction, and expected behavior. A required rate-limit threshold or window should also be supplied if it is fixed by policy; otherwise the executing agent may follow repository conventions.

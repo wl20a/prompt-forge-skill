@@ -1,0 +1,3 @@
+Fixed the ordering in [report.py](/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/direct/workspace/reporting/report.py:5): counts sort descending, with names ascending for ties. CSV header, trailing newline, and public API remain unchanged.
+
+`python3 -m unittest discover -s tests -v` passes: 2 tests run, 0 failures. `README.md` and tests were not modified.

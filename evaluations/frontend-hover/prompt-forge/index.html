@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Select Hover — Reference Match</title>
+  <style>
+    @property --shade-left {
+      syntax: "<number>";
+      inherits: false;
+      initial-value: 0;
+    }
+
+    @property --shade-mid {
+      syntax: "<number>";
+      inherits: false;
+      initial-value: 0;
+    }
+
+    @property --shade-right {
+      syntax: "<number>";
+      inherits: false;
+      initial-value: 0;
+    }
+
+    :root {
+      color-scheme: light;
+      --page: #e9ead7;
+      --paper-top: #f7f4eb;
+      --paper-bottom: #dbdccb;
+      --ink: #172014;
+      --muted: #7b8a84;
+      --field-idle: #fbf9f2;
+      --field-dark-top: #27351f;
+      --field-dark-bottom: #1d2819;
+      --lime: #b9ff62;
+      --lime-border: #b4f95f;
+      --hairline: #a9a99d;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.5), transparent 48%),
+        var(--page);
+      color: var(--ink);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+    }
+
+    .capture {
+      width: min(560px, 100vw);
+      min-height: 174px;
+      padding: 34px 33px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      border-radius: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent 34%),
+        linear-gradient(162deg, var(--paper-top), var(--paper-bottom));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.88),
+        inset 0 -1px 0 rgba(104, 108, 83, 0.08),
+        0 24px 44px -20px rgba(58, 66, 35, 0.34),
+        0 4px 12px rgba(73, 79, 49, 0.1);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      min-height: 14px;
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.21em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      margin: 0 11px 0 5px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 1px rgba(129, 187, 51, 0.12);
+      content: "";
+      flex: 0 0 auto;
+    }
+
+    .select-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .select-shell::before {
+      position: absolute;
+      z-index: 2;
+      top: calc(50% + 3px);
+      left: 14px;
+      width: 4px;
+      height: 44px;
+      border-radius: 99px;
+      background: var(--lime);
+      box-shadow: 0 0 12px rgba(185, 255, 98, 0.42);
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-50%) scaleY(0.62);
+      transition:
+        opacity 150ms ease,
+        transform 240ms var(--ease);
+    }
+
+    select {
+      --shade-left: 0;
+      --shade-mid: 0;
+      --shade-right: 0;
+      width: 100%;
+      height: 80px;
+      padding: 0 74px 0 30px;
+      border: 3px solid transparent;
+      border-radius: 18px;
+      outline: none;
+      appearance: none;
+      background-color: var(--field-idle);
+      background-image:
+        linear-gradient(
+          90deg,
+          rgb(0 0 0 / var(--shade-left)),
+          rgb(0 0 0 / var(--shade-mid)) 52%,
+          rgb(0 0 0 / var(--shade-right))
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.015),
+          rgba(0, 0, 0, 0.1)
+        );
+      color: var(--ink);
+      font: inherit;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      cursor: pointer;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        0 0 0 1px var(--hairline),
+        0 3px 9px rgba(61, 66, 43, 0.07);
+      transition:
+        color 190ms ease,
+        background-color 260ms ease,
+        border-color 210ms ease,
+        box-shadow 260ms var(--ease),
+        --shade-left 260ms var(--ease),
+        --shade-mid 260ms var(--ease),
+        --shade-right 260ms var(--ease),
+        transform 150ms ease;
+    }
+
+    select option {
+      background: #fbf9f2;
+      color: var(--ink);
+    }
+
+    .chevron {
+      position: absolute;
+      z-index: 2;
+      top: calc(50% + 3px);
+      right: 19px;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid rgba(100, 104, 83, 0.18);
+      border-radius: 50%;
+      background: #f3f1e8;
+      color: #4e5a48;
+      pointer-events: none;
+      transform: translateY(-50%) scale(0.94);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 2px 6px rgba(50, 57, 34, 0.08);
+      transition:
+        color 180ms ease,
+        background-color 220ms ease,
+        border-color 220ms ease,
+        box-shadow 260ms var(--ease),
+        transform 250ms var(--ease);
+    }
+
+    .chevron::before {
+      width: 9px;
+      height: 9px;
+      margin-top: 4px;
+      border-top: 2px solid currentColor;
+      border-left: 2px solid currentColor;
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    .select-shell:hover select,
+    .select-shell:focus-within select {
+      border-color: var(--lime-border);
+      background-color: var(--field-dark-top);
+      color: #fff;
+      --shade-left: 0.38;
+      --shade-mid: 0.19;
+      --shade-right: 0.02;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+        0 16px 24px -15px rgba(35, 48, 21, 0.52);
+    }
+
+    .select-shell:hover::before,
+    .select-shell:focus-within::before {
+      opacity: 1;
+      transform: translateY(-50%) scaleY(1);
+    }
+
+    .select-shell:hover .chevron,
+    .select-shell:focus-within .chevron {
+      border-color: var(--lime);
+      background: var(--lime);
+      color: #10170b;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        0 7px 14px rgba(65, 94, 25, 0.3);
+      transform: translateY(-50%) scale(1);
+    }
+
+    select:focus-visible {
+      outline: 3px solid rgba(185, 255, 98, 0.72);
+      outline-offset: 4px;
+    }
+
+    .select-shell:active select {
+      transform: scale(0.997);
+    }
+
+    .select-shell:active .chevron {
+      transform: translateY(-50%) scale(0.96);
+    }
+
+    @media (max-width: 480px) {
+      .capture {
+        padding: 28px 23px 30px;
+      }
+
+      select {
+        padding-left: 26px;
+      }
+
+      .select-shell::before {
+        left: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="capture">
+    <div class="eyebrow">Workspace mode</div>
+    <div class="select-shell">
+      <select id="tier" aria-label="Workspace mode">
+        <option>Automatic</option>
+        <option>Focus</option>
+        <option>Deep work</option>
+      </select>
+      <span class="chevron" aria-hidden="true"></span>
+    </div>
+  </div>
+</body>
+</html>

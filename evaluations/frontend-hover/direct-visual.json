@@ -1,0 +1,11 @@
+{
+  "candidate": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/workspace/screenshots/hover.png",
+  "histogram_distance": 0.166807,
+  "mean_absolute_error": 0.073475,
+  "reference": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/reference.png",
+  "size": [
+    256,
+    96
+  ],
+  "ssim": 0.78265
+}

@@ -1,0 +1,183 @@
+{
+  "aggregate": {
+    "direct": {
+      "avg_check_error_rate": 0.0,
+      "avg_seconds": 87.724,
+      "clarification_signals": 0,
+      "constraint_incidents": 0,
+      "first_pass_rate": 1.0,
+      "ledger_records": 0,
+      "process_ok_rate": 1.0,
+      "rework_rounds": 1,
+      "scope_incidents": 0,
+      "tasks": 1
+    },
+    "prompt-forge": {
+      "avg_check_error_rate": 0.0,
+      "avg_seconds": 271.838,
+      "clarification_signals": 0,
+      "constraint_incidents": 0,
+      "first_pass_rate": 1.0,
+      "ledger_records": 0,
+      "process_ok_rate": 1.0,
+      "rework_rounds": 6,
+      "scope_incidents": 0,
+      "tasks": 1
+    }
+  },
+  "created_at": "20261025T145259Z",
+  "manifest": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/manifest.json",
+  "run_root": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a",
+  "runs": [
+    {
+      "arm_id": "direct",
+      "cached_input_tokens": 874880,
+      "changed_paths": [
+        "index.html"
+      ],
+      "check_error_rate": 0.0,
+      "check_passed": 5,
+      "check_total": 5,
+      "checks": [
+        {
+          "category": "outcome",
+          "detail": "required paths changed",
+          "name": "required-file",
+          "passed": true,
+          "type": "required_changed"
+        },
+        {
+          "category": "outcome",
+          "detail": "exit code 0",
+          "name": "screenshot",
+          "passed": true,
+          "stderr": "",
+          "stdout": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/workspace/screenshots/hover.png\n",
+          "type": "command"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "hover-reported",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "all changed paths allowed",
+          "name": "scope",
+          "passed": true,
+          "type": "allowed_paths"
+        },
+        {
+          "category": "outcome",
+          "detail": "1 changed files; maximum 4",
+          "name": "changed-file-budget",
+          "passed": true,
+          "type": "max_changed_files"
+        }
+      ],
+      "clarification_signal": false,
+      "command_runs": 12,
+      "constraint_incidents": 0,
+      "diagnostic_passed": 0,
+      "diagnostic_total": 0,
+      "elapsed_seconds": 87.724,
+      "events_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/events.jsonl",
+      "final_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/final.txt",
+      "first_pass_ok": true,
+      "id": "direct",
+      "images": [
+        "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/reference.png"
+      ],
+      "input_tokens": 893849,
+      "kind": "direct",
+      "ledger_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/workspace/.prompt-forge/ledger.jsonl",
+      "ledger_records": 0,
+      "output_tokens": 14788,
+      "process_ok": true,
+      "return_code": 0,
+      "rework_rounds": 1,
+      "scope_incidents": 0,
+      "task_id": "select-hover-reference-match",
+      "timed_out": false,
+      "turn_completed": true,
+      "workspace": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/workspace"
+    },
+    {
+      "arm_id": "prompt-forge",
+      "cached_input_tokens": 3871872,
+      "changed_paths": [
+        "index.html"
+      ],
+      "check_error_rate": 0.0,
+      "check_passed": 5,
+      "check_total": 5,
+      "checks": [
+        {
+          "category": "outcome",
+          "detail": "required paths changed",
+          "name": "required-file",
+          "passed": true,
+          "type": "required_changed"
+        },
+        {
+          "category": "outcome",
+          "detail": "exit code 0",
+          "name": "screenshot",
+          "passed": true,
+          "stderr": "",
+          "stdout": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/prompt-forge/workspace/screenshots/hover.png\n",
+          "type": "command"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "hover-reported",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "all changed paths allowed",
+          "name": "scope",
+          "passed": true,
+          "type": "allowed_paths"
+        },
+        {
+          "category": "outcome",
+          "detail": "1 changed files; maximum 4",
+          "name": "changed-file-budget",
+          "passed": true,
+          "type": "max_changed_files"
+        }
+      ],
+      "clarification_signal": false,
+      "command_runs": 37,
+      "constraint_incidents": 0,
+      "diagnostic_passed": 0,
+      "diagnostic_total": 0,
+      "elapsed_seconds": 271.838,
+      "events_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/prompt-forge/events.jsonl",
+      "final_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/prompt-forge/final.txt",
+      "first_pass_ok": true,
+      "id": "prompt-forge",
+      "images": [
+        "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/reference.png"
+      ],
+      "input_tokens": 3906148,
+      "kind": "skill",
+      "ledger_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/prompt-forge/workspace/.prompt-forge/ledger.jsonl",
+      "ledger_records": 0,
+      "output_tokens": 39569,
+      "process_ok": true,
+      "return_code": 0,
+      "rework_rounds": 6,
+      "scope_incidents": 0,
+      "task_id": "select-hover-reference-match",
+      "timed_out": false,
+      "turn_completed": true,
+      "workspace": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/prompt-forge/workspace"
+    }
+  ]
+}

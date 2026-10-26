@@ -1,0 +1,309 @@
+{
+  "aggregate": {
+    "direct": {
+      "avg_check_error_rate": 0.2,
+      "avg_seconds": 16.898,
+      "clarification_signals": 0,
+      "constraint_incidents": 2,
+      "first_pass_rate": 0.5,
+      "ledger_records": 0,
+      "process_ok_rate": 1.0,
+      "rework_rounds": 0,
+      "scope_incidents": 0,
+      "tasks": 2
+    },
+    "prompt-forge": {
+      "avg_check_error_rate": 0.0,
+      "avg_seconds": 27.652,
+      "clarification_signals": 0,
+      "constraint_incidents": 0,
+      "first_pass_rate": 1.0,
+      "ledger_records": 1,
+      "process_ok_rate": 1.0,
+      "rework_rounds": 0,
+      "scope_incidents": 0,
+      "tasks": 2
+    }
+  },
+  "created_at": "20261025T033716Z",
+  "manifest": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/manifest.json",
+  "run_root": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e",
+  "runs": [
+    {
+      "arm_id": "direct",
+      "cached_input_tokens": 51712,
+      "changed_paths": [],
+      "check_error_rate": 0.4,
+      "check_passed": 3,
+      "check_total": 5,
+      "checks": [
+        {
+          "category": "outcome",
+          "detail": "0 changed files; maximum 0",
+          "name": "no-workspace-mutation",
+          "passed": true,
+          "type": "max_changed_files"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "rate-limit-preserved",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "api-preserved",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=False",
+          "name": "prohibition-visible",
+          "passed": false,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=False",
+          "name": "unknowns-visible",
+          "passed": false,
+          "type": "final_contains"
+        }
+      ],
+      "clarification_signal": false,
+      "constraint_incidents": 2,
+      "diagnostic_passed": 0,
+      "diagnostic_total": 0,
+      "elapsed_seconds": 15.715,
+      "events_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/direct/events.jsonl",
+      "final_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/direct/final.txt",
+      "first_pass_ok": false,
+      "id": "direct",
+      "input_tokens": 53683,
+      "kind": "direct",
+      "ledger_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/direct/workspace/.prompt-forge/ledger.jsonl",
+      "ledger_records": 0,
+      "output_tokens": 1575,
+      "process_ok": true,
+      "return_code": 0,
+      "rework_rounds": 0,
+      "scope_incidents": 0,
+      "task_id": "ambiguous-secure-prompt",
+      "timed_out": false,
+      "turn_completed": true,
+      "workspace": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/direct/workspace"
+    },
+    {
+      "arm_id": "prompt-forge",
+      "cached_input_tokens": 220160,
+      "changed_paths": [],
+      "check_error_rate": 0.0,
+      "check_passed": 5,
+      "check_total": 5,
+      "checks": [
+        {
+          "category": "outcome",
+          "detail": "0 changed files; maximum 0",
+          "name": "no-workspace-mutation",
+          "passed": true,
+          "type": "max_changed_files"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "rate-limit-preserved",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "api-preserved",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "prohibition-visible",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "outcome",
+          "detail": "pattern found=True",
+          "name": "unknowns-visible",
+          "passed": true,
+          "type": "final_contains"
+        },
+        {
+          "category": "diagnostic",
+          "detail": "ledger records 1; expected >= 1",
+          "name": "prompt-change-recorded",
+          "passed": true,
+          "type": "ledger_min_records"
+        }
+      ],
+      "clarification_signal": false,
+      "constraint_incidents": 0,
+      "diagnostic_passed": 1,
+      "diagnostic_total": 1,
+      "elapsed_seconds": 37.079,
+      "events_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/prompt-forge/events.jsonl",
+      "final_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/prompt-forge/final.txt",
+      "first_pass_ok": true,
+      "id": "prompt-forge",
+      "input_tokens": 224227,
+      "kind": "skill",
+      "ledger_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/prompt-forge/workspace/.prompt-forge/ledger.jsonl",
+      "ledger_records": 1,
+      "output_tokens": 4544,
+      "process_ok": true,
+      "return_code": 0,
+      "rework_rounds": 0,
+      "scope_incidents": 0,
+      "task_id": "ambiguous-secure-prompt",
+      "timed_out": false,
+      "turn_completed": true,
+      "workspace": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/ambiguous-secure-prompt/prompt-forge/workspace"
+    },
+    {
+      "arm_id": "direct",
+      "cached_input_tokens": 276352,
+      "changed_paths": [
+        "reporting/report.py"
+      ],
+      "check_error_rate": 0.0,
+      "check_passed": 4,
+      "check_total": 4,
+      "checks": [
+        {
+          "category": "outcome",
+          "detail": "exit code 0",
+          "name": "tests",
+          "passed": true,
+          "stderr": "test_count_descending_then_name_ascending (test_report.RenderReportTests.test_count_descending_then_name_ascending) ... ok\ntest_header_and_trailing_newline (test_report.RenderReportTests.test_header_and_trailing_newline) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+          "stdout": "",
+          "type": "command"
+        },
+        {
+          "category": "outcome",
+          "detail": "unchanged",
+          "name": "protected-files",
+          "passed": true,
+          "type": "forbidden_paths"
+        },
+        {
+          "category": "outcome",
+          "detail": "all changed paths allowed",
+          "name": "scope",
+          "passed": true,
+          "type": "allowed_paths"
+        },
+        {
+          "category": "outcome",
+          "detail": "required paths changed",
+          "name": "target-changed",
+          "passed": true,
+          "type": "required_changed"
+        }
+      ],
+      "clarification_signal": false,
+      "constraint_incidents": 0,
+      "diagnostic_passed": 0,
+      "diagnostic_total": 0,
+      "elapsed_seconds": 18.08,
+      "events_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/direct/events.jsonl",
+      "final_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/direct/final.txt",
+      "first_pass_ok": true,
+      "id": "direct",
+      "input_tokens": 280137,
+      "kind": "direct",
+      "ledger_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/direct/workspace/.prompt-forge/ledger.jsonl",
+      "ledger_records": 0,
+      "output_tokens": 2767,
+      "process_ok": true,
+      "return_code": 0,
+      "rework_rounds": 0,
+      "scope_incidents": 0,
+      "task_id": "clear-report-fix",
+      "timed_out": false,
+      "turn_completed": true,
+      "workspace": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/direct/workspace"
+    },
+    {
+      "arm_id": "prompt-forge",
+      "cached_input_tokens": 335872,
+      "changed_paths": [
+        "reporting/report.py"
+      ],
+      "check_error_rate": 0.0,
+      "check_passed": 4,
+      "check_total": 4,
+      "checks": [
+        {
+          "category": "outcome",
+          "detail": "exit code 0",
+          "name": "tests",
+          "passed": true,
+          "stderr": "test_count_descending_then_name_ascending (test_report.RenderReportTests.test_count_descending_then_name_ascending) ... ok\ntest_header_and_trailing_newline (test_report.RenderReportTests.test_header_and_trailing_newline) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK\n",
+          "stdout": "",
+          "type": "command"
+        },
+        {
+          "category": "outcome",
+          "detail": "unchanged",
+          "name": "protected-files",
+          "passed": true,
+          "type": "forbidden_paths"
+        },
+        {
+          "category": "outcome",
+          "detail": "all changed paths allowed",
+          "name": "scope",
+          "passed": true,
+          "type": "allowed_paths"
+        },
+        {
+          "category": "outcome",
+          "detail": "required paths changed",
+          "name": "target-changed",
+          "passed": true,
+          "type": "required_changed"
+        },
+        {
+          "category": "diagnostic",
+          "detail": "ledger records 0; expected <= 0",
+          "name": "no-prompt-ledger-write",
+          "passed": true,
+          "type": "ledger_max_records"
+        }
+      ],
+      "clarification_signal": false,
+      "constraint_incidents": 0,
+      "diagnostic_passed": 1,
+      "diagnostic_total": 1,
+      "elapsed_seconds": 18.225,
+      "events_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/prompt-forge/events.jsonl",
+      "final_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/prompt-forge/final.txt",
+      "first_pass_ok": true,
+      "id": "prompt-forge",
+      "input_tokens": 340997,
+      "kind": "skill",
+      "ledger_path": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/prompt-forge/workspace/.prompt-forge/ledger.jsonl",
+      "ledger_records": 0,
+      "output_tokens": 2567,
+      "process_ok": true,
+      "return_code": 0,
+      "rework_rounds": 0,
+      "scope_incidents": 0,
+      "task_id": "clear-report-fix",
+      "timed_out": false,
+      "turn_completed": true,
+      "workspace": "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/ab-harness/results-v042-fair/20261025T033547Z-03e90e/runs/clear-report-fix/prompt-forge/workspace"
+    }
+  ]
+}

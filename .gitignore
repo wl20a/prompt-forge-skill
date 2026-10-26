@@ -1,0 +1,23 @@
+# Local agent and runtime state
+.agents/
+.aws/
+.codex/
+
+# Scratch fixtures and archived local runs
+work/
+outputs/
+
+# Python and editor artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local configuration and secrets
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db

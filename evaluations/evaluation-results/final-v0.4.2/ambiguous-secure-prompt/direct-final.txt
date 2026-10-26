@@ -1,0 +1,55 @@
+The original prompt is under-specified: “login bug” has no symptom or reproduction, “secure” has no scope, and “don’t change the API” conflicts with rate limiting, which normally adds a `429` response.
+
+Improved prompt:
+
+```text
+Work only in the existing repository at the current working directory. Fix the
+login/authentication defect without replacing the authentication system or
+changing the public API contract.
+
+Before editing:
+1. Trace the relevant login endpoint, credential validation, session/token
+   handling, error responses, and existing tests.
+2. Identify and document the root cause. Reproduce it with a focused test or
+   another reliable check.
+3. Check for relevant existing security middleware, configuration,
+   error-handling conventions, and test patterns before introducing new ones.
+
+Implement:
+- The smallest secure fix for the confirmed login defect.
+- Rate limiting for the login endpoint using the repository's existing
+  framework or middleware where available. Choose a deployment-appropriate
+  limit and key strategy; do not create an easy account-lockout denial of
+  service. Make limits configurable if the project already has a configuration
+  pattern.
+- Focused tests covering the original failure, successful login, rejected
+  credentials, and rate-limit behavior.
+
+Compatibility and security constraints:
+- Preserve existing endpoint paths, methods, request formats, response schemas,
+  and normal successful behavior.
+- Do not modify internal APIs unless required by the fix; keep those changes
+  minimal and update affected callers.
+- Do not log passwords, tokens, secrets, or other sensitive credential data.
+- Do not weaken password hashing, session validation, token expiration,
+  authorization checks, or existing security controls.
+- Adding a standard rate-limit rejection such as 429 with Retry-After is
+  permitted. Do not otherwise expose additional authentication details.
+- Avoid unrelated refactors, formatting-only changes, dependency upgrades, and
+  broad security rewrites.
+
+Verification:
+- Run the focused tests and the relevant existing test suite.
+- If practical, verify that normal login behavior is unchanged and repeated
+  login attempts are throttled.
+
+If the repository does not contain enough evidence to determine what “login
+bug” refers to, or if “do not change the API” is intended to prohibit even a
+429 rate-limit response, stop and report the missing information instead of
+guessing.
+
+Finish by reporting: the root cause, files changed, rate-limit behavior,
+security impact, test commands/results, and any remaining risks or assumptions.
+```
+
+I did not inspect or modify the repository.

@@ -1,0 +1,3 @@
+已完成 [index.html](/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/workspace/index.html)。
+
+hover 时呈现参考图的深墨绿面板、荧光绿描边与光晕、左侧状态条及圆形上箭头，并加入轻微抬升和箭头浮动。原生 `<select>`、`id`、三个选项和指定结构均已保留，同时补全了键盘焦点、移动端和减少动态效果支持。已通过本地浏览器截图核对实际 hover 效果。

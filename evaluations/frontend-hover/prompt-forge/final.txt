@@ -1,0 +1,5 @@
+已完成：[index.html](/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/prompt-forge/workspace/index.html:65)。
+
+Hover 和键盘焦点态现在包含 3px 荧光描边、左深右浅的插值暗面、左侧绿色强调条、44px 圆形箭头按钮及平滑上浮效果。原生 `select#tier` 和三个选项均保留。
+
+已在本地无头 Chromium 验证：`560×174` 下控件边界与参考图对齐至像素级；默认态、hover、键盘焦点、375px 窄屏和减少动态效果设置均正常。未安装依赖、未联网或部署。

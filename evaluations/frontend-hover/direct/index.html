@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workspace Mode Selector</title>
+  <style>
+    :root {
+      --canvas: #f2eee3;
+      --surface: #faf7ee;
+      --surface-highlight: #fffdf7;
+      --ink: #f8f6ef;
+      --muted: #7f8679;
+      --field-dark: #192314;
+      --field-deep: #11180f;
+      --accent: #9bff50;
+      --accent-bright: #adff68;
+      --accent-ink: #102109;
+      --hairline: #d8d1c2;
+      --ease-out: cubic-bezier(.2, .8, .2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% 44%, rgba(255, 255, 255, .7), transparent 48%),
+        var(--canvas);
+      color: #161c15;
+      font-family: ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .capture {
+      width: min(724px, 100%);
+      padding: 42px 36px 48px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 0%, var(--surface-highlight), transparent 38%),
+        radial-gradient(circle at 92% 100%, rgba(226, 220, 206, .74), transparent 44%),
+        var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: 28px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, .92) inset,
+        0 18px 38px rgba(38, 42, 31, .08),
+        0 3px 8px rgba(38, 42, 31, .04);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      margin: 0 0 16px 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      content: "";
+      border-radius: 50%;
+      background: #a2ff72;
+      box-shadow: 0 0 9px rgba(162, 255, 114, .48);
+    }
+
+    .select-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .select-shell::before {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 21px;
+      width: 5px;
+      height: 32px;
+      content: "";
+      pointer-events: none;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow:
+        0 0 9px rgba(155, 255, 80, .32),
+        0 0 1px rgba(255, 255, 255, .65) inset;
+      transform: translateY(-50%);
+      transition:
+        box-shadow 180ms ease,
+        background-color 180ms ease,
+        transform 220ms var(--ease-out);
+    }
+
+    select {
+      width: 100%;
+      height: 96px;
+      padding: 0 92px 0 42px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      outline: none;
+      background:
+        linear-gradient(118deg, rgba(65, 84, 49, .36), transparent 38%),
+        linear-gradient(145deg, #24301e 0%, var(--field-dark) 48%, var(--field-deep) 100%);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, .09) inset,
+        0 -18px 30px rgba(0, 0, 0, .09) inset,
+        0 6px 18px rgba(35, 48, 27, .16),
+        0 0 0 1px rgba(30, 50, 18, .18);
+      color: var(--ink);
+      font: 700 28px/1.1 ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: -.022em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .32);
+      cursor: pointer;
+      transition:
+        border-color 180ms ease,
+        box-shadow 220ms var(--ease-out),
+        transform 220ms var(--ease-out),
+        background-color 220ms ease;
+    }
+
+    select option {
+      padding: 12px;
+      background: #f8f5eb;
+      color: #182014;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .chevron {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: 16px;
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      pointer-events: none;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, .44) inset,
+        0 -4px 10px rgba(73, 143, 28, .11) inset,
+        0 4px 12px rgba(103, 180, 48, .16);
+      color: var(--accent-ink);
+      transform: translateY(-50%);
+      transition:
+        background-color 180ms ease,
+        box-shadow 220ms var(--ease-out),
+        transform 220ms var(--ease-out);
+    }
+
+    .chevron::before {
+      width: 11px;
+      height: 11px;
+      content: "";
+      border-top: 2.4px solid currentColor;
+      border-left: 2.4px solid currentColor;
+      border-radius: 1px;
+      transform: translateY(4px) rotate(45deg);
+      transition: transform 220ms var(--ease-out);
+    }
+
+    .select-shell:hover select {
+      border-color: var(--accent-bright);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, .12) inset,
+        0 -18px 30px rgba(0, 0, 0, .09) inset,
+        0 8px 22px rgba(41, 64, 28, .2),
+        0 0 0 4px rgba(155, 255, 80, .1),
+        0 0 24px rgba(155, 255, 80, .2);
+      transform: translateY(-1px);
+    }
+
+    .select-shell:hover::before {
+      background: #b0ff75;
+      box-shadow:
+        0 0 13px rgba(167, 255, 104, .62),
+        0 0 2px rgba(255, 255, 255, .8) inset;
+      transform: translateY(-50%) scaleY(1.06);
+    }
+
+    .select-shell:hover .chevron {
+      background: #adff68;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, .55) inset,
+        0 -4px 10px rgba(73, 143, 28, .1) inset,
+        0 5px 16px rgba(117, 213, 49, .25),
+        0 0 0 4px rgba(155, 255, 80, .08);
+      transform: translateY(-53%) scale(1.035);
+    }
+
+    .select-shell:hover .chevron::before {
+      transform: translateY(2px) rotate(45deg);
+    }
+
+    select:focus-visible {
+      border-color: #c0ff93;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, .12) inset,
+        0 -18px 30px rgba(0, 0, 0, .09) inset,
+        0 7px 20px rgba(41, 64, 28, .19),
+        0 0 0 4px rgba(155, 255, 80, .18),
+        0 0 24px rgba(155, 255, 80, .18);
+    }
+
+    select:active {
+      transform: translateY(0) scale(.998);
+    }
+
+    select:disabled {
+      cursor: not-allowed;
+      opacity: .52;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 16px;
+      }
+
+      .capture {
+        padding: 30px 24px 34px;
+        border-radius: 23px;
+      }
+
+      .eyebrow {
+        margin-bottom: 13px;
+        font-size: 11px;
+      }
+
+      select {
+        height: 76px;
+        padding-left: 34px;
+        border-radius: 17px;
+        font-size: 23px;
+      }
+
+      .select-shell::before {
+        left: 17px;
+        height: 27px;
+        width: 4px;
+      }
+
+      .chevron {
+        right: 12px;
+        width: 52px;
+        height: 52px;
+      }
+
+      .chevron::before {
+        width: 9px;
+        height: 9px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      select,
+      .chevron,
+      .chevron::before,
+      .select-shell::before {
+        transition-duration: .01ms;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="capture">
+    <div class="eyebrow">Workspace mode</div>
+    <div class="select-shell">
+      <select id="tier" aria-label="Workspace mode">
+        <option>Automatic</option>
+        <option>Focus</option>
+        <option>Deep work</option>
+      </select>
+      <span class="chevron" aria-hidden="true"></span>
+    </div>
+  </div>
+</body>
+</html>

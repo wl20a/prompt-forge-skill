@@ -1,0 +1,56 @@
+{
+  "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/direct/workspace/index.html": {
+    "focus": {
+      "focused": true,
+      "outline": "none"
+    },
+    "hover": {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(173, 255, 104)"
+    },
+    "hover_changed": true,
+    "id": "tier",
+    "idle": {
+      "background": "rgba(0, 0, 0, 0)",
+      "border": "rgb(155, 255, 80)",
+      "options": [
+        "Automatic",
+        "Focus",
+        "Deep work"
+      ]
+    },
+    "mobile": {
+      "right": 334,
+      "width": 293
+    },
+    "mobile_within_viewport": true,
+    "reduced_motion_duration": "1e-05s"
+  },
+  "/home/gongyuhan/Documents/Codex/2026-10-24/prompt-forge-skill/work/frontend-ab/results/20261025T144654Z-6b7d3a/runs/select-hover-reference-match/prompt-forge/workspace/index.html": {
+    "focus": {
+      "focused": true,
+      "outline": "solid"
+    },
+    "hover": {
+      "background": "rgb(39, 53, 31)",
+      "border": "rgb(180, 249, 95)"
+    },
+    "hover_changed": true,
+    "id": "tier",
+    "idle": {
+      "background": "rgb(251, 249, 242)",
+      "border": "rgba(0, 0, 0, 0)",
+      "options": [
+        "Automatic",
+        "Focus",
+        "Deep work"
+      ]
+    },
+    "mobile": {
+      "right": 351,
+      "width": 327
+    },
+    "mobile_within_viewport": true,
+    "reduced_motion_duration": "1e-05s"
+  }
+}
